@@ -1,0 +1,70 @@
+
+$cube_dim: 100px;
+$container_dim: 2 * $cube_dim;
+$color: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 15%, rgba(0, 247, 255, 0.9) 100%);
+
+.cube_container {
+  position: absolute;
+  top: 150px;
+  left: 50vw;
+  width: $container_dim;
+  height: $container_dim;
+  perspective: 500px;
+  margin: 100px auto 0;
+}
+
+.cube {
+  width: $cube_dim;
+  height: $cube_dim;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-45deg) rotateY(45deg);
+  animation: spin 8s infinite ease;
+}
+
+.face {
+  position: absolute;
+  width: $container_dim;
+  height: $container_dim;
+}
+
+.top {
+  background: $color;
+  transform: rotateX(90deg) translateZ($cube_dim);
+}
+
+.bottom {
+  background: $color;
+  transform: rotateX(-90deg) translateZ($cube_dim);
+}
+
+.left {
+  background: $color;
+  transform: rotateY(-90deg) translateZ($cube_dim);
+}
+
+.right {
+  background: $color;
+  transform: rotateY(90deg) translateZ($cube_dim);
+}
+
+.back {
+  background: $color;
+  transform: rotateX(180deg) translateZ($cube_dim);
+}
+
+.front {
+  background: $color;
+  transform: rotateX(0deg) translateZ($cube_dim);
+}
+
+
+@keyframes spin {
+  from {
+    transform:rotateX(0deg) rotateY(45deg);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}

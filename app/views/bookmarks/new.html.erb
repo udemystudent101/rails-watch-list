@@ -1,0 +1,31 @@
+<h1>Bookmarks#new</h1>
+<p>Find me in app/views/bookmarks/new.html.erb</p>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie, as: :select%>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+
+<ul class="row mt-5">
+  <% @movies.each do |movie| %>
+    <div class="col-4">
+      <img src="<%= movie.poster_url %>" alt="" style="width: 300px">
+    </div>
+  <% end %>
+</ul>
+
+
+
+<%# <%= f.association :movie, as: :select,
+                  item_wrapper_tag: :div,
+                  item_wrapper_class: "image-select",
+                  :collection => Movie.all,
+                  :label => false,
+                  :inline_label => false,
+                  :include_blank => false,
+                  :input_html => {multiple: true},
+                  :label_method => lambda { |b| image_tag(b.poster_url, size: "20x10") },
+                  value_method: :id
+  %>

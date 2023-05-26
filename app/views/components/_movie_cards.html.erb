@@ -1,0 +1,7 @@
+<div class="card p-3 rounded shadow" style="width: 18rem;">
+  <img class="border card-img-top" src="<%= movie.poster_url %>" alt="<%= movie.title %>">
+  <div class="card-body">
+    <h5 data-typed-js-target="movie" class="card-title flex-nowrap"><%= movie.title %></h5>
+    <p class="card-text"><%= movie.overview[0..90] %>...</p>
+  </div>
+</div>

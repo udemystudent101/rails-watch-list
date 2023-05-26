@@ -1,0 +1,13 @@
+<h1>Lists#show</h1>
+<p>Find me in app/views/lists/show.html.erb</p>
+<%= link_to "Add Bookmark", new_list_bookmark_path(@list.id), class: "btn btn-primary" %>
+
+<h1><%= @list.name %></h1>
+<ul class="list-group">
+  <% Bookmark.where(list_id: @list.id).each do |bookmark| %>
+    <li class="list-group_item d-flex mx-5">
+      <%= link_to(raw('<i class="fa-sharp fa-regular fa-circle-xmark">'), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) %></i>
+      <%= Movie.find(bookmark.movie_id).title %>
+    </li>
+  <% end %>
+</ul>
